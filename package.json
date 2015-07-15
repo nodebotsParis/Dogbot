@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "Git",
+    "url": "https://github.com/nodebotsParis/Dogbot.git"
   },
   "dependencies": {
     "barcli": "0.0.13",
