@@ -2,14 +2,25 @@
  * le sumobot lui meme !
  */
 
+// chargement de la librairie Johnny five
 var five = require('johnny-five');
 
-// on initialise une connection serie avec l'arduino
-var board = new five.Board(
-  // {port: '/dev/tty.BLuebot-DevB'} // bluetooth
-  {port: '/dev/tty.usbmodem1411'} // usb
-  // si fournie sans port il essaye les port disponibles
-);
+// chargement de la configuration
+var conf = require('./config');
+
+// creation d'un lien serie vers l'arduino
+// via l'adresse de la configuration
+if(conf.boardType === 'auto'){
+  var board = new five.Board();
+} else if (conf.boardType === 'usb'){
+  var board = new five.Board({
+    port : conf.boardUsb
+  });
+} else if (conf.boardType === 'bt'){
+  var board = new five.Board({
+    port : conf.boardBt
+  });
+}
 
 // quand la connection serie est initialisée cet event est produit
 board.on('ready', function() {

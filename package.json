@@ -2,13 +2,20 @@
   "name": "servocont",
   "description": "dogbot a Johnny-Five project",
   "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "license": "MIT",
   "repository": {
     "type": "Git",
     "url": "https://github.com/nodebotsParis/Dogbot.git"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "barcli": "0.0.13",
+    "barcli": "^0.0.13",
     "gamepad": "^1.1.0",
     "johnny-five": "^0.8.85",
     "keypress": "^0.2.1",

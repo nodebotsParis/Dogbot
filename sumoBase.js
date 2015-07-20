@@ -5,13 +5,21 @@
 var five = require('johnny-five');
 var keypress = require('keypress');
 var gamepad = require('gamepad');
-var Barcli = require('barcli');
-keypress(process.stdin);
-var board = new five.Board(
-  {port: '/dev/cu.BLuebot-DevB'} // port bluetooth
-  // {port: '/dev/tty.usbmodem1411'} // port usb
-);
+var conf = require('./config');
 
+if(conf.boardType === 'auto'){
+  var board = new five.Board();
+} else if (conf.boardType === 'usb'){
+  var board = new five.Board({
+    port : conf.boardUsb
+  });
+} else if (conf.boardType === 'bt'){
+  var board = new five.Board({
+    port : conf.boardBt
+  });
+}
+
+keypress(process.stdin);
 
 /**
  * GAMEPAD
@@ -51,11 +59,6 @@ gamepad.on('up', function (id, num) {
     num: num,
   });
 });
-
-// creation des barres pour le stick analogique
-var leftX = new Barcli({ label: 'left X', range: [-1, 1],precision:2});
-var leftY = new Barcli({ label: 'left Y', range: [-1, 1],precision:2});var rightX = new Barcli({ label: 'right X', range: [-1, 1],precision:2});
-var rightY = new Barcli({ label: 'right Y', range: [-1, 1],precision:2});
 
 /**
  * SUMO
