@@ -8,6 +8,8 @@ c'est juste une base pour vous lancer, qui permettra de controller le robot de f
 
 # TL-DR
 
+tu branche les deux servos  comme cela ![image](branchements.png)
+
 ```
 cp config-sample.js config.js
 npm install
