@@ -5,7 +5,7 @@
 var five = require('johnny-five');
 var keypress = require('keypress');
 var gamepad = require('gamepad');
-var conf = require('./config');
+var conf = require('../config');
 
 if(conf.boardType === 'auto'){
   var board = new five.Board();

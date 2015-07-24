@@ -21,6 +21,8 @@ var conf = {
   boardUsb  : '/dev/tty.usbmodem8013431',
   boardBt : '/dev/tty.BLuebot-DevB',
 
+  // pin des servoMoteurs
+  motorsPins : [2,3],
   // choix du type de controle
   // 'keyboard' : par defaut, utilise les fleches
   // 'ps3'      : gamepad ps3

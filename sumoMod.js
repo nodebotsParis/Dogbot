@@ -26,8 +26,15 @@ if(conf.boardType === 'auto'){
 board.on('ready', function() {
 
   // on crée nos servos
-  var servo = new five.Servo.Continuous(2).stop();
-  var servo2 = new five.Servo.Continuous(3).stop();
+  var servo,servo2;
+  console.log(conf);
+  if (!conf.motorsPins){
+    servo = new five.Servo.Continuous(2).stop();
+    servo2 = new five.Servo.Continuous(3).stop();
+  }else{
+    servo = new five.Servo.Continuous(conf.motorsPins[0]).stop();
+    servo2 = new five.Servo.Continuous(conf.motorsPins[1]).stop();
+  }
 
   // Fonctions de mouvement du bot
   var up = function(){

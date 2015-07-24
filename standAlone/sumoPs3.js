@@ -7,7 +7,7 @@ var gamepad = require('gamepad');
 var isMoving = false;
 var dirFwd = true;
 var board = new five.Board(
-  {port: '/dev/cu.BLuebot-DevB'}
+  //{port: '/dev/cu.BLuebot-DevB'}
   // {port: '/dev/tty.usbmodem1411'}
 );
 
